@@ -63,14 +63,6 @@ describe('Creating a map', function() {
     beforeEach(function() {
       callbacks = {
         onclick : function(e) {
-          // var lat = e.latLng.lat();
-          // var lng = e.latLng.lng();
-
-          // mapWithEvents.addMarker({
-          //   lat : lat,
-          //   lng : lng,
-          //   title : 'New Marker'
-          // });
           // console.log('onclick');
         },
         onzoomchanged : function() {
@@ -130,54 +122,4 @@ describe('Creating a map', function() {
       mapWithEvents = null;
     });
   });
-
-  // Move to gmaps.controls
-  /*describe('With custom controls', function() {
-    var callbacks;
-
-    beforeEach(function() {
-      callbacks = {
-        onclick : function() {
-          console.log('control.onclick');
-          // mapWithCustomControls.addMarker({
-          //   lat : mapWithCustomControls.getCenter().lat(),
-          //   lng : mapWithCustomControls.getCenter().lng()
-          // });
-        }
-      }
-
-      expect.spyOn(callbacks, 'onclick').andCallThrough();
-
-      mapWithCustomControls = new GMaps({
-        el : '#map-with-custom-controls',
-        lat : -12.0433,
-        lng : -77.0283
-      });
-
-      mapWithCustomControls.addControl({
-        position : 'top_right',
-        content : 'Add marker at the center',
-        style : {
-          margin: '5px',
-          padding: '1px 6px',
-          border: 'solid 1px #717B87',
-          background: '#fff'
-        },
-        events : {
-          click: callbacks.onclick
-        }
-      });
-    });
-
-    it('should add the control to the controls collection', function() {
-      expect(mapWithCustomControls.controls.length).toEqual(1);
-    });
-
-    it('should respond to click event attached to the custom control', function() {
-      google.maps.event.trigger(mapWithCustomControls.controls[0], 'click');
-
-      expect(callbacks.onclick).toHaveBeenCalled();
-      // expect(mapWithCustomControls.markers.length).toEqual(1);
-    });
-  });*/
 });

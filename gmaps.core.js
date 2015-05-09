@@ -5,7 +5,6 @@ var _forEach = require('lodash-compat/collection/forEach'),
     _forIn = require('lodash-compat/object/forIn'),
     _extend = require('lodash-compat/object/extend'),
     _omit = require('lodash-compat/object/omit'),
-    querySelectorAll = require('query-selector'),
     isGoogleMapsRegistered = (typeof window.google === 'object' && window.google.maps),
     doc = window.document,
     nativeMethods = [
@@ -20,8 +19,24 @@ if (!isGoogleMapsRegistered) {
   throw 'Google Maps API is required. Please register the following JavaScript library in your site: http://maps.google.com/maps/api/js?sensor=true';
 }
 
-function querySelector() {
-  return querySelectorAll.apply(doc, arguments)[0];
+function querySelector(selector, context) {
+  var element;
+
+  if (!context) {
+    context = doc;
+  }
+
+  if (context.querySelector) {
+    element = context.querySelector(selector);
+  }
+  else if (selector[0] === '#') {
+    element = doc.getElementById(selector.replace(/^#/, ''));
+  }
+  else if (selector[0] === '.') {
+    element = context.getElementsByClassName(selector.replace(/^\./, ''))[0];
+  }
+
+  return element;
 }
 
 function coordsToLatLngs(coords, useGeoJSON) {

@@ -23,8 +23,7 @@
     "url": "https://github.com/hpneo/gmaps.core/issues"
   },
   "dependencies": {
-    "lodash-compat": "^3.8.0",
-    "query-selector": "^1.0.8"
+    "lodash-compat": "^3.8.0"
   },
   "devDependencies": {
     "browserify": "^10.1.0",
