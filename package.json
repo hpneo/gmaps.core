@@ -1,0 +1,41 @@
+{
+  "name": "gmaps.core",
+  "version": "0.5.0",
+  "description": "gmaps.js core that contains the base for create simple maps using Google Maps API",
+  "main": "gmaps.core.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "gmaps",
+    "google",
+    "maps",
+    "browser"
+  ],
+  "author": "Gustavo Leon <gustavo.leon@outlook.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/hpneo/gmaps.core",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hpneo/gmaps.core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hpneo/gmaps.core/issues"
+  },
+  "dependencies": {
+    "lodash-compat": "^3.8.0",
+    "query-selector": "^1.0.8"
+  },
+  "devDependencies": {
+    "browserify": "^10.1.0",
+    "gulp": "^3.8.11",
+    "gulp-jasmine-phantom": "^1.1.3",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-mocha-phantomjs": "^0.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "mocha": "^2.2.4",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
