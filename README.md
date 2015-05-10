@@ -34,7 +34,7 @@ Every Google Maps map needs a container (`<div id="map"></div>` in this demo), w
   <div id="map"></div>
   <script>
     var map = new GMaps({
-      el : '#basic-map',
+      el : '#map',
       lat: -12.0433,
       lng: -77.0283,
       zoom: 12
@@ -50,7 +50,7 @@ For more examples you can check the tests in this repo.
 
 ### Constructor / initialize: `new GMaps(options)`
 
-Creates a new instance of `GMaps`, a wrapper for simpler use of the Google Maps JavaScript API. The new instance has the same methods of `google.maps.Map`.
+Create a new instance of `GMaps`, a wrapper for simpler use of the Google Maps JavaScript API. The new instance has the same methods of `google.maps.Map`.
 
 `GMaps` accepts all the [MapOptions](https://developers.google.com/maps/documentation/javascript/reference#MapOptions) and [events](https://developers.google.com/maps/documentation/javascript/reference#Map) listed in the Google Maps API.
 
@@ -68,7 +68,7 @@ Center the map using the `lat` and `lng` coordinates. If a callback if passed, i
 
 ### `getElement()`
 
-Returns the HTML element container of the map.
+Return the HTML element container of the map.
 
 ### `zoomIn()`
 
@@ -84,11 +84,11 @@ Trigger a `resize` event, useful if you need to repaint the current map (for cha
 
 ### `GMaps.arrayToLatLng(coords, useGeoJSON)`
 
-Returns an array of `google.maps.LatLng` objects. If `useGeoJSON` is true, inverts the order of `coords` before convert it, since GeoJSON format has the order `longitude, latitude` instead Google Maps' `latitude, longitude`. Supports simple or multi-dimensional arrays.
+Return an array of `google.maps.LatLng` objects. If `useGeoJSON` is true, inverts the order of `coords` before convert it, since GeoJSON format has the order `longitude, latitude` instead Google Maps' `latitude, longitude`. Supports simple or multi-dimensional arrays.
 
 ### `GMaps.coordsToLatLngs(coords, useGeoJSON)`
 
-Returns a `google.maps.LatLng` object from a two-elements array. If `useGeoJSON` is true, inverts the order of `coords` before convert it, since GeoJSON format has the order `longitude, latitude` instead Google Maps' `latitude, longitude`.
+Return a `google.maps.LatLng` object from a two-elements array. If `useGeoJSON` is true, inverts the order of `coords` before convert it, since GeoJSON format has the order `longitude, latitude` instead Google Maps' `latitude, longitude`.
 
 ## Changelog
 
