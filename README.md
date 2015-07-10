@@ -94,6 +94,10 @@ Return a `google.maps.LatLng` object from a two-elements array. If `useGeoJSON` 
 
 For pre 0.5.0 versions, check [gmaps.js changelog](https://github.com/hpneo/gmaps#changelog)
 
+### 0.5.1
+
+* Remove `window` references for using in Isomorphic/Universal JavaScript apps
+
 ### 0.5.0
 
 * Node module format (CommonJS)

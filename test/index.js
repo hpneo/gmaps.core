@@ -1,5 +1,5 @@
 describe('Creating a map', function() {
-  var basicMap, advancedMap, mapWithEvents, mapWithCustomControls;
+  var basicMap, advancedMap, mapWithEvents;
 
   it('should throw an error if element is not defined', function() {
     expect(function() {

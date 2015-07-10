@@ -5,8 +5,7 @@ var _forEach = require('lodash-compat/collection/forEach'),
     _forIn = require('lodash-compat/object/forIn'),
     _extend = require('lodash-compat/object/extend'),
     _omit = require('lodash-compat/object/omit'),
-    isGoogleMapsRegistered = (typeof window.google === 'object' && window.google.maps),
-    doc = window.document,
+    isGoogleMapsRegistered = (typeof google === 'object' && google.maps),
     nativeMethods = [
       'setCenter', 'streetView_changed', 'getDiv', 'panBy', 'panTo',
       'panToBounds', 'fitBounds', 'getBounds', 'getStreetView', 'setStreetView',
@@ -15,22 +14,18 @@ var _forEach = require('lodash-compat/collection/forEach'),
       'setOptions', 'changed', 'bindTo', 'unbind', 'unbindAll', 'addListener'
     ];
 
-if (!isGoogleMapsRegistered) {
-  throw 'Google Maps API is required. Please register the following JavaScript library in your site: http://maps.google.com/maps/api/js?sensor=true';
-}
-
 function querySelector(selector, context) {
   var element;
 
   if (!context) {
-    context = doc;
+    context = document;
   }
 
   if (context.querySelector) {
     element = context.querySelector(selector);
   }
   else if (selector[0] === '#') {
-    element = doc.getElementById(selector.replace(/^#/, ''));
+    element = document.getElementById(selector.replace(/^#/, ''));
   }
   else if (selector[0] === '.') {
     element = context.getElementsByClassName(selector.replace(/^\./, ''))[0];
@@ -145,6 +140,10 @@ function setupListener(gmaps, object, eventName, listener) {
 }
 
 function GMaps(options) {
+  if (!isGoogleMapsRegistered) {
+    throw 'Google Maps API is required. Please register the following JavaScript library in your site: http://maps.google.com/maps/api/js?sensor=true';
+  }
+
   if (!this) {
     return new GMaps(options);
   }
@@ -353,7 +352,7 @@ GMaps.prototype.getContextMenu = function() {
 };
 
 GMaps.prototype.setContextMenu = function(options) {
-  var contextMenuElement = doc.createElement('ul'),
+  var contextMenuElement = document.createElement('ul'),
       contextMenuControlType = options.control,
       contextMenuOptions = options.options,
       contextMenu = {};
@@ -378,11 +377,11 @@ GMaps.prototype.setContextMenu = function(options) {
   contextMenuElement.style.padding = '8px';
   contextMenuElement.style.boxShadow = '2px 2px 6px #ccc';
 
-  doc.body.appendChild(contextMenuElement);
+  document.body.appendChild(contextMenuElement);
 
   google.maps.event.addDomListener(contextMenuElement, 'mouseout', function(mouseOutEvent) {
     if (!mouseOutEvent.relatedTarget || !this.contains(mouseOutEvent.relatedTarget)) {
-      window.setTimeout(function() {
+      setTimeout(function() {
         contextMenuElement.style.display = 'none';
       }, 400);
     }
