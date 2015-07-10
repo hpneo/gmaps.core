@@ -1,6 +1,6 @@
 {
   "name": "gmaps.core",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "gmaps.js core that contains the base for create simple maps using Google Maps API",
   "main": "gmaps.core.js",
   "scripts": {
